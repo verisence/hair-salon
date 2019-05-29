@@ -89,12 +89,16 @@ public class ClientTest {
         Client savedClient = Client.all().get(0);
         assertEquals(client.getId(), savedClient.getId());
     }
-    //TODO add saves catIntodb, retrieve
+    //TODO add saves catIntoDb, retrieve
     @Test
     public void update_updateClientDescription_true(){
         Client myClient = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
         myClient.save();
-        myClient.update("nails and braids");
+        myClient.update("Jas", "nails and braids", "jams@mail.mail", 8, "998766");
+        assertEquals("Jas", Client.find(myClient.getId()).getName());
         assertEquals("nails and braids", Client.find(myClient.getId()).getDescription());
+        assertEquals("jams@mail.mail", Client.find(myClient.getId()).getMail());
+        assertEquals(8, Client.find(myClient.getId()).getStylistId());
+        assertEquals("998766", Client.find(myClient.getId()).getPhone());
     }
 }
