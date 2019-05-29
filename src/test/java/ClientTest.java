@@ -53,5 +53,18 @@ public class ClientTest {
         client.save();
         assertTrue(Client.all().get(0).equals(client));
     }
-
+    @Test
+    public void find_returnsClientWIthSameID_secondClient(){
+        Client clientOne = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
+        clientOne.save();
+        Client clientTwo = new Client("Jennifer", "braids and nails", "jene@mail.com", "9988783", 2);
+        clientTwo.save();
+        assertEquals(Client.find(clientTwo.getId()), clientTwo);
+    }
+    @Test
+    public void equals_returnsTrueIfClientsAreSame(){
+        Client clientOne = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
+        Client clientTwo = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
+        assertTrue(clientOne.equals(clientTwo));
+    }
 }

@@ -73,4 +73,13 @@ public class Client {
                     this.getStylistId() == client.getStylistId();
         }
     }
+
+    public static Client find(int id){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "SELECT * FROM clients where id=:id";
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Client.class);
+        }
+    }
 }
