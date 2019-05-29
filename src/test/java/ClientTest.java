@@ -101,4 +101,12 @@ public class ClientTest {
         assertEquals(8, Client.find(myClient.getId()).getStylistId());
         assertEquals("998766", Client.find(myClient.getId()).getPhone());
     }
+    @Test
+    public void delete_deletesClient_true(){
+        Client client = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
+        client.save();
+        int clientId = client.getId();
+        client.delete();
+        assertEquals(null, Client.find(clientId));
+    }
 }
