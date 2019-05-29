@@ -31,4 +31,10 @@ public class StylistTest {
         stylist.save();
         assertTrue(stylist.getId()>0);
     }
+    @Test
+    public void save_savesCorrectly() {
+        Stylist stylist = new Stylist("Terry", "terry@mail.mail", "998877");
+        stylist.save();
+        assertTrue(Stylist.all().get(0).equals(stylist));
+    }
 }

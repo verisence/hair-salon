@@ -36,4 +36,25 @@ public class Stylist {
                     .getKey();
         }
     }
+    
+    public static List<Stylist> all(){
+
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT id, name, email, phone FROM stylists";
+            return con.createQuery(sql).executeAndFetch(Stylist.class);
+        }
+    }
+
+    @Override
+    public boolean equals (Object otherStylist){
+        if (!(otherStylist instanceof Stylist)){
+            return false;
+        }else{
+            Stylist stylist =(Stylist) otherStylist;
+            return this.getId() == stylist.getId()&&
+                    this.getName().equals(stylist.getName()) &&
+                    this.getMail().equals(stylist.getMail()) &&
+                    this.getPhone().equals(stylist.getPhone());
+        }
+    }
 }
