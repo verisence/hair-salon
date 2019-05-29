@@ -67,4 +67,10 @@ public class ClientTest {
         Client clientTwo = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
         assertTrue(clientOne.equals(clientTwo));
     }
+    @Test
+    public void save_returnsTrueIfDescriptionsAreTheSame(){
+        Client client = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
+        client.save();
+        assertEquals(Client.all().get(0), client);
+    }
 }
