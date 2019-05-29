@@ -51,4 +51,10 @@ public class StylistTest {
         Stylist secondStylist = new Stylist("Tracy", "tracy@mail.mail", "998879");
         assertEquals(firstStylist, secondStylist);
     }
+    @Test
+    public void save_savesIntoDatabase_true(){
+        Stylist stylist = new Stylist("Tracy", "tracy@mail.mail", "998879");
+        stylist.save();
+        assertEquals(Stylist.all().get(0), stylist);
+    }
 }
