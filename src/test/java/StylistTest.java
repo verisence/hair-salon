@@ -25,4 +25,10 @@ public class StylistTest {
         Stylist testStylist = new Stylist("Terry", "terry@mail.mail", "998877");
         assertEquals("998877", testStylist.getPhone());
     }
+    @Test
+    public void Stylist_instantiatesWithAnId() {
+        Stylist stylist = new Stylist("Terry", "terry@mail.mail", "998877");
+        stylist.save();
+        assertTrue(stylist.getId()>0);
+    }
 }

@@ -12,6 +12,9 @@ public class Stylist {
         this.email = email;
         this.phone = phone;
     }
+    public int getId() {
+        return id;
+    }
     public String getName(){
         return name;
     }
@@ -20,5 +23,17 @@ public class Stylist {
     }
     public String getPhone(){
         return phone;
+    }
+
+    public void save(){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "INSERT INTO stylists (name, email, phone) VALUES(:name, :email, :phone)";
+            this.id = (int) con.createQuery(sql,true)
+                    .addParameter("name", this.name)
+                    .addParameter("email", this.email)
+                    .addParameter("phone", this.phone)
+                    .executeUpdate()
+                    .getKey();
+        }
     }
 }
