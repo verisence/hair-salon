@@ -89,7 +89,6 @@ public class ClientTest {
         Client savedClient = Client.all().get(0);
         assertEquals(client.getId(), savedClient.getId());
     }
-    //TODO add saves catIntoDb, retrieve
     @Test
     public void update_updateClientDescription_true(){
         Client myClient = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
