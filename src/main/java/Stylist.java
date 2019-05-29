@@ -12,4 +12,13 @@ public class Stylist {
         this.email = email;
         this.phone = phone;
     }
+    public String getName(){
+        return name;
+    }
+    public String getMail(){
+        return email;
+    }
+    public String getPhone(){
+        return phone;
+    }
 }
