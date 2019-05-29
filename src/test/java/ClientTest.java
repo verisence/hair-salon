@@ -1,8 +1,13 @@
 import org.junit.*;
+import org.sql2o.Connection;
+import org.sql2o.Sql2o;
+
 import static org.junit.Assert.*;
 import java.util.Arrays;
 
 public class ClientTest {
+
+
     @Rule
     public DatabaseRule databaseRule = new DatabaseRule();
 
@@ -42,4 +47,11 @@ public class ClientTest {
         client.save();
         assertTrue(client.getId()>0);
     }
+    @Test
+    public void save_savesCorrectly() {
+        Client client = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
+        client.save();
+        assertTrue(Client.all().get(0).equals(client));
+    }
+
 }

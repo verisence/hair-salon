@@ -1,4 +1,5 @@
 import org.sql2o.Connection;
+import java.util.List;
 
 public class Client {
     private int id;
@@ -47,6 +48,29 @@ public class Client {
                     .addParameter("phone", this.phone)
                     .executeUpdate()
                     .getKey();
+        }
+    }
+
+    public static List<Client> all(){
+
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT id, name, description, email, stylistId, phone FROM clients";
+            return con.createQuery(sql).executeAndFetch(Client.class);
+        }
+    }
+
+    @Override
+    public boolean equals (Object otherClient){
+        if (!(otherClient instanceof Client)){
+            return false;
+        }else{
+            Client client =(Client) otherClient;
+            return this.getId() == client.getId()&&
+                    this.getName().equals(client.getName()) &&
+                    this.getDescription().equals(client.getDescription()) &&
+                    this.getMail().equals(client.getMail()) &&
+                    this.getPhone().equals(client.getPhone())&&
+                    this.getStylistId() == client.getStylistId();
         }
     }
 }
