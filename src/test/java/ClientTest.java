@@ -21,4 +21,19 @@ public class ClientTest {
         Client client = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
         assertEquals("braids", client.getDescription());
     }
+    @Test
+    public void Client_instantiatesWithEmail_String() {
+        Client client = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
+        assertEquals("jane@mail.com", client.getMail());
+    }
+    @Test
+    public void Client_instantiatesWithPhone_String() {
+        Client client = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
+        assertEquals("998878", client.getPhone());
+    }
+    @Test
+    public void Client_instantiatesWithStylistId_Integer() {
+        Client client = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
+        assertEquals(9, client.getStylistId());
+    }
 }

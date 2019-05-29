@@ -20,5 +20,14 @@ public class Client {
     public String getDescription(){
         return description;
     }
+    public String getMail(){
+        return email;
+    }
+    public String getPhone(){
+        return phone;
+    }
+    public int getStylistId(){
+        return stylistId;
+    }
 
 }
