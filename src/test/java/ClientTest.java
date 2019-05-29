@@ -36,4 +36,10 @@ public class ClientTest {
         Client client = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
         assertEquals(9, client.getStylistId());
     }
+    @Test
+    public void Client_instantiatesWithAnId() {
+        Client client = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
+        client.save();
+        assertTrue(client.getId()>0);
+    }
 }
