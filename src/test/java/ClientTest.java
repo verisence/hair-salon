@@ -109,4 +109,24 @@ public class ClientTest {
         client.delete();
         assertEquals(null, Client.find(clientId));
     }
+    @Test
+    public void save_savesStylistIdIntoDB_true(){
+        Stylist stylist = new Stylist("Terry", "terry@mail.mail", "998877");
+        stylist.save();
+        Client client = new Client("Jane", "braids", "jane@mail.com", "998878", stylist.getId());
+        client.save();
+        Client savedClient = Client.find(client.getId());
+        assertEquals(savedClient.getStylistId(), stylist.getId());
+    }
+    @Test
+    public void getClients_retrievesAllClientsFromDatabase_clientsList() {
+        Stylist myStylist = new Stylist("Terry", "terry@mail.mail", "998877");
+        myStylist.save();
+        Client firstClient = new Client("Jane", "braids", "jane@mail.com", "998878", myStylist.getId());
+        firstClient.save();
+        Client secondClient = new Client("Jas", "braids and nails", "jams@mail.com", "998898", myStylist.getId());
+        secondClient.save();
+        Client[] clients = new Client[] { firstClient, secondClient };
+        assertTrue(myStylist.getClients().containsAll(Arrays.asList(clients)));
+    }
 }
