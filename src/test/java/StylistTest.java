@@ -75,4 +75,12 @@ public class StylistTest {
         assertEquals("tory@mail.mail", Stylist.find(stylist.getId()).getMail());
         assertEquals("998855", Stylist.find(stylist.getId()).getPhone());
     }
+    @Test
+    public void delete_deletesStylist_true(){
+        Stylist stylist = new Stylist("Tracy", "tracy@mail.mail", "998879");
+        stylist.save();
+        int stylistId = stylist.getId();
+        stylist.delete();
+        assertEquals(null, Stylist.find(stylistId));
+    }
 }
