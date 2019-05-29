@@ -82,4 +82,11 @@ public class ClientTest {
         assertEquals(Client.all().get(0), client);
         assertEquals(Client.all().get(1), clientTwo);
     }
+    @Test
+    public void save_assignsIdToObject() {
+        Client client = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
+        client.save();
+        Client savedClient = Client.all().get(0);
+        assertEquals(client.getId(), savedClient.getId());
+    }
 }
