@@ -16,4 +16,9 @@ public class ClientTest {
             Client client = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
         assertEquals("Jane", client.getName());
     }
+    @Test
+    public void Client_instantiatesWithDesc_String() {
+        Client client = new Client("Jane", "braids", "jane@mail.com", "998878", 9);
+        assertEquals("braids", client.getDescription());
+    }
 }
