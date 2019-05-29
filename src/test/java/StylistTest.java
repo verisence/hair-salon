@@ -26,6 +26,12 @@ public class StylistTest {
         assertEquals("998877", testStylist.getPhone());
     }
     @Test
+    public void save_savesIntoDatabase_true(){
+        Stylist stylist = new Stylist("Tracy", "tracy@mail.mail", "998879");
+        stylist.save();
+        assertEquals(Stylist.all().get(0), stylist);
+    }
+    @Test
     public void Stylist_instantiatesWithAnId() {
         Stylist stylist = new Stylist("Terry", "terry@mail.mail", "998877");
         stylist.save();
@@ -52,9 +58,12 @@ public class StylistTest {
         assertEquals(firstStylist, secondStylist);
     }
     @Test
-    public void save_savesIntoDatabase_true(){
-        Stylist stylist = new Stylist("Tracy", "tracy@mail.mail", "998879");
-        stylist.save();
-        assertEquals(Stylist.all().get(0), stylist);
-    }
+    public void all_returnsAllInstancesOfStylist_true() {
+        Stylist firstStylist = new Stylist("Tracy", "tracy@mail.mail", "998879");
+        Stylist secondStylist = new Stylist("Terry", "terry@mail.mail", "998877");
+        firstStylist.save();
+        secondStylist.save();
+        assertEquals(Stylist.all().get(0), firstStylist);
+        assertEquals(Stylist.all().get(1), secondStylist);
+    }    
 }
