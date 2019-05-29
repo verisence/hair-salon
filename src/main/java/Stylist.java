@@ -57,4 +57,12 @@ public class Stylist {
                     this.getPhone().equals(stylist.getPhone());
         }
     }
+    public static Stylist find(int id){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "SELECT * FROM stylists where id=:id";
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Stylist.class);
+        }
+    }
 }
