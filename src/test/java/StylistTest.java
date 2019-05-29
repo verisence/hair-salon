@@ -45,4 +45,10 @@ public class StylistTest {
         secondStylist.save();
         assertEquals(Stylist.find(secondStylist.getId()), secondStylist);
     }
+    @Test
+    public void equals_returnsTrueIfStylistsAreSame() {
+        Stylist firstStylist = new Stylist("Tracy", "tracy@mail.mail", "998879");
+        Stylist secondStylist = new Stylist("Tracy", "tracy@mail.mail", "998879");
+        assertEquals(firstStylist, secondStylist);
+    }
 }
