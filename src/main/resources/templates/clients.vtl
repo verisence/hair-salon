@@ -14,6 +14,7 @@
             <th class="text-center">Stylist ID</th>
             <th class="text-center">Phone Number</th>
             <th class="text-center">Edit Client</th>
+            <th class="text-center">View Client</th>
             <th class="text-center">Delete Client</th>
           </tr>
         </thead>
@@ -30,8 +31,15 @@
                   class="btn btn-unique btn-rounded btn-sm my-0">Edit Client</button></span>
             </td>
             <td>
-              <span class="table-remove"><button type="button"
-                  class="btn btn-danger btn-rounded btn-sm my-0">Delete Client</button></span>
+              <span class="table-remove"><a href="/clients/$client.getId()"><button
+              type="button" class="btn btn-info btn-rounded btn-sm my-0">View Client</button></a></span>
+            </td>
+            <td>
+              <form action="/stylists/$client.getStylistId()/clients/client.getId()/delete" method="post">
+              <span class="table-remove">
+                  <a href="/stylists/$client.getStylistId()/clients/client.getId()/delete"><button type="button"
+                  class="btn btn-danger btn-rounded btn-sm my-0">Delete Client</button></a></span>
+              </form>
             </td>
           </tr>
         </tbody>

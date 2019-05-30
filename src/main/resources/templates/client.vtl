@@ -1,6 +1,6 @@
 <div class="text-center">
 <!-- Card -->
-<div class="card mb-4">
+<div class="card mb-4 card-stylist">
 
   <!-- Card image -->
   <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
@@ -14,7 +14,6 @@
     <p>Style: $client.getDescription()</p>
     <p>Email: $client.getMail()</p>
     <p>Phone: $client.getPhone()</p>
-    <p>This is a client of $stylist.getName()</p>
   </div>
 
 </div>
@@ -24,4 +23,9 @@
 
     <a href="/clients/new"><button class = "btn btn-unique">Add a new client</button></a>
     <a href="/clients"><button class = "btn btn-unique">All Clients</button></a>
+      <form action="/stylists/$client.getStylistId()/clients/client.getId()/delete" method="post">
+      <span class="table-remove">
+          <a href="/stylists/$client.getStylistId()/clients/client.getId()/delete"><button type="button"
+          class="btn btn-danger btn-rounded btn-sm my-0">Delete Client</button></a></span>
+      </form>
 </div>
