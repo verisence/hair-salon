@@ -1,0 +1,24 @@
+
+<!-- Card -->
+<div class="card mb-4">
+
+  <!-- Card image -->
+  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <!-- Title -->
+    <h4 class="card-title">$stylist.getName() clients:</h4>
+    <!-- Text -->
+    #foreach($client in $stylist.getClients())
+     <a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getDescription()</a>
+    #end
+  </div>
+
+</div>
+<!-- Card -->
+
+
+<a href="/clients/new"><button class = "btn btn-unique">Add a new client</button></a>
+<a href="/stylists"><button class = "btn btn-unique">All Stylists</button></a>

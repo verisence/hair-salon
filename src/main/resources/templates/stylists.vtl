@@ -1,7 +1,6 @@
 <h1>All stylists</h1>
 
-
-#foreach ($stylist in $stylists)
+  #foreach ($stylist in $stylists)
 
 
     <!-- Card Regular -->
@@ -24,10 +23,10 @@
         <h6 class="font-weight-bold indigo-text py-2">$stylist.getId()</h6>
         <!-- Text -->
         <br>
-        <p class="card-text">To view the clients under $stylist.getName(), click the button below.
+        <p class="card-text">To view the clients in the $stylist.getName() stylist, click the button below.
         </p>
 
-        <a href="/stylists/$stylist.getId()"><button class="btn btn-unique">View tasks</button></a>
+        <a href="/stylists/$stylist.getId()"><button class="btn btn-unique">View clients</button></a>
 
       </div>
 
@@ -36,7 +35,6 @@
 
 
   #end
-
 <div class="row text-center">
 <a href="/stylists/new"><button class="btn btn-unique">Add New Stylist</button></a>
 </div>
