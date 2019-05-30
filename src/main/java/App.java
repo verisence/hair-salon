@@ -35,6 +35,7 @@ public class App {
             model.put("template", "templates/stylist.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
+
         post("/stylists", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             String name = request.queryParams("name");
@@ -46,6 +47,10 @@ public class App {
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
-
+        get("clients/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            model.put("template", "templates/client-form.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
     }
 }
