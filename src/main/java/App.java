@@ -52,5 +52,7 @@ public class App {
             model.put("template", "templates/client-form.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
+
+
     }
 }
