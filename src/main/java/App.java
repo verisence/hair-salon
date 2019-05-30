@@ -110,5 +110,27 @@ public class App {
             model.put("template", "templates/clients.vtl");
             return new ModelAndView(model,layout);
         }, new VelocityTemplateEngine());
+
+        get("/clients/:id/edit", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            Client client = Client.find(Integer.parseInt(request.params(":id")));
+            model.put("client", client);
+            model.put("stylists", Stylist.all());
+            model.put("template", "templates/edit-client.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+
+        post("/clients/:id/edit", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            Client client = Client.find(Integer.parseInt(request.params(":id")));
+            String name = request.queryParams("name");
+            String description = request.queryParams("description");
+            String email = request.queryParams("email");
+            int stylistId = Integer.parseInt(request.queryParams("stylistId"));
+            String phone = request.queryParams("phone");
+            client.update(name, description, email, stylistId, phone );
+            model.put("template", "templates/clients.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
     }
 }
