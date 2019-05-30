@@ -1,0 +1,42 @@
+<h1>All stylists</h1>
+
+
+#foreach ($stylist in $stylists)
+
+
+    <!-- Card Regular -->
+    <div class="card card-cascade">
+
+      <!-- Card image -->
+      <div class="view view-cascade overlay">
+        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/men.jpg" alt="Card image cap">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <!-- Card content -->
+      <div class="card-body card-body-cascade text-center">
+
+        <!-- Title -->
+        <h4 class="card-title"><strong>$stylist.getName()</strong></h4>
+        <!-- Subtitle -->
+        <h6 class="font-weight-bold indigo-text py-2">$stylist.getId()</h6>
+        <!-- Text -->
+        <br>
+        <p class="card-text">To view the clients under $stylist.getName(), click the button below.
+        </p>
+
+        <a href="/stylists/$stylist.getId()"><button class="btn btn-unique">View tasks</button></a>
+
+      </div>
+
+    </div>
+    <!-- Card Regular -->
+
+
+  #end
+
+<div class="row text-center">
+<a href="/stylists/new"><button class="btn btn-unique">Add New Stylist</button></a>
+</div>
