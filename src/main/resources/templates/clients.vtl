@@ -17,14 +17,14 @@
             <th class="text-center">Delete Client</th>
           </tr>
         </thead>
+        #foreach ($client in $clients)
         <tbody>
-          #foreach ($client in $clients)
           <tr>
-            <td class="pt-3-half" contenteditable="true">$client.getName()</td>
-            <td class="pt-3-half" contenteditable="true">$client.getDescription()</td>
-            <td class="pt-3-half" contenteditable="true">$client.getMail()</td>
-            <td class="pt-3-half" contenteditable="true">$client.getStylistId()</td>
-            <td class="pt-3-half" contenteditable="true">$client.getPhone()</td>
+            <td class="pt-3-half" contenteditable="false">$client.getName()</td>
+            <td class="pt-3-half" contenteditable="false">$client.getDescription()</td>
+            <td class="pt-3-half" contenteditable="false">$client.getMail()</td>
+            <td class="pt-3-half" contenteditable="false">$client.getStylistId()</td>
+            <td class="pt-3-half" contenteditable="false">$client.getPhone()</td>
             <td>
               <span class="table-remove"><button type="button"
                   class="btn btn-danger btn-rounded btn-sm my-0">Edit Client</button></span>
@@ -34,8 +34,8 @@
                   class="btn btn-danger btn-rounded btn-sm my-0">Delete Client</button></span>
             </td>
           </tr>
-          #end
         </tbody>
+        #end
       </table>
     </div>
   </div>
