@@ -2,23 +2,55 @@
 <!-- Card -->
 <div class="card mb-4">
 
-  <!-- Card image -->
-  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+
 
   <!-- Card content -->
   <div class="card-body">
 
     <!-- Title -->
-    <h4 class="card-title">$stylist.getName() clients:</h4>
+    <h4 class="card-title">$stylist.getName()'s clients:</h4>
     <!-- Text -->
-    #foreach($client in $stylist.getClients())
-     <a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getDescription()</a>
-    #end
+    <div id="table" class="table">
+      <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
+            class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <thead>
+          <tr>
+            <th class="text-center">Client Name</th>
+            <th class="text-center">Style</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Stylist ID</th>
+            <th class="text-center">Phone Number</th>
+            <th class="text-center">Edit Client</th>
+            <th class="text-center">Delete Client</th>
+          </tr>
+        </thead>
+        #foreach ($client in $stylist.getClients())
+        <tbody>
+          <tr>
+            <td class="pt-3-half" contenteditable="false">$client.getName()</td>
+            <td class="pt-3-half" contenteditable="false">$client.getDescription()</td>
+            <td class="pt-3-half" contenteditable="false">$client.getMail()</td>
+            <td class="pt-3-half" contenteditable="false">$client.getStylistId()</td>
+            <td class="pt-3-half" contenteditable="false">$client.getPhone()</td>
+            <td>
+              <span class="table-remove"><button type="button"
+                  class="btn btn-unique btn-rounded btn-sm my-0">Edit Client</button></span>
+            </td>
+            <td>
+              <span class="table-remove"><button type="button"
+                  class="btn btn-danger btn-rounded btn-sm my-0">Delete Client</button></span>
+            </td>
+          </tr>
+        </tbody>
+        #end
+      </table>
+    </div>
   </div>
 
 </div>
 <!-- Card -->
-
+<br>
 
 <a href="/clients/new"><button class = "btn btn-unique">Add a new client</button></a>
 <a href="/stylists"><button class = "btn btn-unique">All Stylists</button></a>

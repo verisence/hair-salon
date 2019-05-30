@@ -3,14 +3,20 @@
 <p>Add a stylist here:</p>
 
 <form action="/stylists" method="post">
-  <label for="name">Stylist name</label>
-  <input id="name" name="name" type="text">
+      <div class="form-group">
+          <label for="Name">Stylist Name</label>
+          <input id="Name" name="Name" type="text" class="form-control">
+      </div>
 
-  <label for="name">Email</label>
-  <input id="email" name="email" type="text">
+       <div class="form-group">
+           <label for="email">Email Address</label>
+           <input id="email" name="email" type="text" class="form-control">
+       </div>
 
-  <label for="name">Phone</label>
-  <input id="phone" name="phone" type="text">
-  <br>
-  <button type="submit" class="btn btn-success">Add Stylist</button>
+      <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="number" class="form-control">
+      </div>
+
+  <button type="submit" class="btn btn-unique">Add Stylist</button>
 </form>
