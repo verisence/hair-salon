@@ -43,6 +43,7 @@ stylist to view details. The administrator can also view all the clients, a sing
 * Gradle(for unit testing).
 * Bootstrap.
 * Spark.
+* Postgresql
 * Material Design Bootstrap.
 
 ## License
