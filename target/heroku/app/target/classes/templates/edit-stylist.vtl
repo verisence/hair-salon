@@ -1,0 +1,22 @@
+<h1>Add a stylist</h1>
+
+<p>Add a stylist here:</p>
+
+<form action="/stylists/$stylist.getId()/edit" method="post">
+      <div class="form-group">
+          <label for="Name">Stylist Name</label>
+          <input id="name" name="name" type="text" class="form-control">
+      </div>
+
+       <div class="form-group">
+           <label for="email">Email Address</label>
+           <input id="email" name="email" type="text" class="form-control">
+       </div>
+
+      <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="number" class="form-control">
+      </div>
+
+  <button type="submit" class="btn btn-unique">Update Stylist</button>
+</form>

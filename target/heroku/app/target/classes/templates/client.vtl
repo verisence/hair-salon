@@ -1,0 +1,31 @@
+<div class="text-center">
+<!-- Card -->
+<div class="card mb-4 card-stylist">
+
+  <!-- Card image -->
+  <img class="card-img-top" src="https://images.pexels.com/photos/1234901/pexels-photo-1234901.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Card image cap">
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <!-- Title -->
+    <h4 class="card-title">$client.getName()</h4>
+    <!-- Text -->
+    <p>Style: $client.getDescription()</p>
+    <p>Email: $client.getMail()</p>
+    <p>Phone: $client.getPhone()</p>
+  </div>
+
+</div>
+<!-- Card -->
+
+<br>
+
+    <a href="/clients/new"><button class = "btn btn-unique">Add a new client</button></a>
+    <a href="/clients"><button class = "btn btn-unique">All Clients</button></a>
+    <form action="/clients/$client.getId()/delete" method="post">
+         <button type="submit" class="btn red" id="delete-client">Delete Client</button>
+    </form>
+
+
+</div>

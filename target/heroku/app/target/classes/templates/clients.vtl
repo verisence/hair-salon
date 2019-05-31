@@ -1,0 +1,47 @@
+<!-- Editable table -->
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">ALL CLIENTS</h3>
+  <div class="card-body">
+    <div id="table" class="table">
+      <table class="table table-bordered table-responsive-sm table-striped text-center">
+        <thead>
+          <tr>
+            <th class="text-center">Client Name</th>
+            <th class="text-center">Style</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Stylist ID</th>
+            <th class="text-center">Phone Number</th>
+            <th class="text-center">Edit Client</th>
+            <th class="text-center">View Client</th>
+            <th class="text-center">Delete Client</th>
+          </tr>
+        </thead>
+        #foreach ($client in $clients)
+        <tbody>
+          <tr>
+            <td class="pt-3-half" contenteditable="false">$client.getName()</td>
+            <td class="pt-3-half" contenteditable="false">$client.getDescription()</td>
+            <td class="pt-3-half" contenteditable="false">$client.getMail()</td>
+            <td class="pt-3-half" contenteditable="false">$client.getStylistId()</td>
+            <td class="pt-3-half" contenteditable="false">$client.getPhone()</td>
+            <td>
+              <span class="table-remove"><a href="/clients/$client.getId()/edit"><button type="button"
+                  class="btn btn-unique btn-rounded btn-sm my-0">Edit Client</button></a></span>
+            </td>
+            <td>
+              <span class="table-remove"><a href="/clients/$client.getId()"><button
+              type="button" class="btn btn-info btn-rounded btn-sm my-0">View Client</button></a></span>
+            </td>
+            <td>
+             <form action="/clients/$client.getId()/delete" method="post">
+                 <button type="submit" class="btn red btn-sm" id="delete-client">Delete Client</button>
+            </form>
+            </td>
+          </tr>
+        </tbody>
+        #end
+      </table>
+      <a href="/clients/new"><button class = "btn btn-unique">Add a new client</button></a>
+    </div>
+  </div>
+</div>

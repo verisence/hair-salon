@@ -1,0 +1,40 @@
+html,
+body,
+.view {
+  height: 100%; }
+
+.space{
+    margin-bottom:30px;
+}
+.main-part{
+    min-height: 800px;
+}
+
+body {
+  background-color: #3AAFA9;
+}
+
+.card {
+    //width : 250px;
+    margin-right: 10px;
+    margin-top: 10px;
+    //display: inline-block;
+}
+
+.card-stylist{
+    display: inline-block;
+    width : 250px;
+}
+
+.div-center {
+    height:500px;
+    margin: auto auto;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    padding-top: 100px;
+}
+
+
