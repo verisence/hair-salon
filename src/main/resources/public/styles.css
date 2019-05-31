@@ -11,7 +11,7 @@ body,
 }
 
 body {
-  background-color: #ff9900;
+  background-color: #3AAFA9;
 }
 
 .card {
@@ -24,6 +24,17 @@ body {
 .card-stylist{
     display: inline-block;
     width : 250px;
+}
+
+.div-center {
+    height:500px;
+    margin: auto auto;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    padding-top: 100px;
 }
 
 

@@ -117,6 +117,7 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             Client client = Client.find(Integer.parseInt(request.params(":id")));
             model.put("client", client);
+            model.put("clients", Client.all());
             model.put("stylists", Stylist.all());
             model.put("template", "templates/edit-client.vtl");
             return new ModelAndView(model, layout);
@@ -130,6 +131,7 @@ public class App {
             String email = request.queryParams("email");
             int stylistId = Integer.parseInt(request.queryParams("stylistId"));
             String phone = request.queryParams("phone");
+            model.put("clients", Client.all());
             client.update(name, description, email, stylistId, phone );
             model.put("template", "templates/clients.vtl");
             return new ModelAndView(model, layout);
@@ -139,6 +141,7 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
             model.put("stylist", stylist);
+            model.put("stylists", Stylist.all());
             model.put("template", "templates/edit-stylist.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
